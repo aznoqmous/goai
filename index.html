@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cls</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/pro0.js"></script>
+    <script src="js/script.js"></script>
+    <style media="screen">
+      * { box-sizing: border-box; padding: 0; margin: 0; font-family: Arial;}
+      body {width: 100vw; height: 100vh; overflow-x: hidden; background: #eee}
+      /*canvas{ display: block; margin: 50px auto; box-shadow: 0 3px 5px rgba(0,0,0,0.5);}*/
+      canvas{border-radius: 20px; display: block; margin: 50px auto; box-shadow: 0 3px 5px rgba(0,0,0,0.5);}
+      .btn {user-select: none; outline: none; border: 1px solid #b0b0b0; font-size: 16px; vertical-align: top; cursor: pointer; display: inline-block; padding: 10px; background: white; box-shadow: 0 2px 3px rgba(0,0,0,0.3); margin-right: 10px; margin-bottom: 5px; transition: all 100ms ease-out}
+      .btn.disp {cursor: default;}
+      #contain {padding: 10px; display: block; width: 600px; margin: 0 auto}
+      .ctrl, .res {  margin-bottom: 10px}
+      /*.ctrl, .res { opacity: 0; margin-bottom: 10px}*/
+      span {display: block;}
+      .scr {position: relative; padding-left: 25px; margin-bottom: 5px}
+      .scr:before {position: absolute; content: ""; height: 20px; width: 20px; border-radius: 50%; top: calc(50% - 10px); left: 0; background: black; box-shadow: 0 2px 3px rgba(0,0,0,0.3);}
+      .scr.wscore:before {background: white}
+      .btn.active{ box-shadow: 0 0 1px rgba(0,0,0,0.5); background: #474747; color: white}
+      .menu{box-shadow: -16px -20px 5px black inset; padding-bottom: 39px; background: #eee; height: 100vh; overflow-y: scroll; position: fixed; left: 0; top: 0; }
+      .game {box-shadow: 0 1px 5px rgba(0,0,0,0.4); background: rgba(255,255,255,0); cursor: pointer; display: block; font-weight: normal; padding: 10px; transition: all 100ms ease-out}
+      .game div {display: inline-block;}
+      .game b { font-weight: normal; position: relative; display: block; padding-left: 25px; margin-right: 5px; height: 20px;}
+      .game b:after{ position: absolute; top: calc(50% - 10px); left: 0; height: 15px; width: 15px; border-radius: 50%; background: white; box-shadow: 0 2px 3px rgba(0,0,0,0.2); content: " ";}
+      .game b.blk:after {background: black}
+
+      .game:hover { }
+      .game.active { background: white;  }
+      #search { position: fixed; bottom: 0; left: 0; z-index: 10; padding: 10px 15px; width: 274px}
+      .hidden {display: none}
+
+
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <div id="contain">
+      <div class="ctrl">
+        <input class="btn disp" id="currTurn" type="number" value="0" min="0" max="0">
+        <span class="btn" id="auto">auto</span><br>
+        <span class="btn" id="count">count</span>
+        <span class="btn" id="libs">libs</span>
+        <span class="btn" id="grps">grps</span>
+        <span class="btn" id="infs">infs</span>
+        <span class="btn" id="bp">bp</span>
+        <span class="btn" id="grid">grid</span>
+        <span class="btn" id="turns">turns</span>
+      </div>
+      <div class="res">
+        <span class="scr bscore"></span>
+        <span class="scr wscore"></span>
+      </div>
+    </div>
+    <div class="menu">
+      <input id="search" type="text" value="" placeholder="Search..">
+    </div>
+
+
+  </body>
+</html>
